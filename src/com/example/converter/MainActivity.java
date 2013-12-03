@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnFocusChangeListener;
 import android.widget.EditText;
 
 public class MainActivity extends Activity {
@@ -33,6 +34,7 @@ public class MainActivity extends Activity {
 	        public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 	        public void onTextChanged(CharSequence s, int start, int before, int count){}
 	    });
+
 		textBox2.addTextChangedListener(new TextWatcher(){
 	        public void afterTextChanged(Editable s) {
 	        	if ( !textBox2.isFocused() ) return;
@@ -49,6 +51,26 @@ public class MainActivity extends Activity {
 	        public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 	        public void onTextChanged(CharSequence s, int start, int before, int count){}
 	    });
+		
+		textBox1.setOnFocusChangeListener(new OnFocusChangeListener(){
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+			    if(hasFocus){
+			    	if(textBox1.getText().toString().compareTo("NaN") == 0)
+			    		textBox1.setText("");
+			    }
+			}
+		});
+		
+		textBox2.setOnFocusChangeListener(new OnFocusChangeListener(){
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+			    if(hasFocus){
+			    	if(textBox2.getText().toString().equals("NaN"))
+			    		textBox2.setText("");
+			    }
+			}
+		});
 	}
 
 	@Override
