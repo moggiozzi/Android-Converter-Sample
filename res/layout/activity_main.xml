@@ -17,16 +17,6 @@
         android:text="Grad"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="44dp"
-        android:onClick="doConvert"
-        android:text="Convert" />
-
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
